@@ -29,7 +29,7 @@ public class VideoGameApplication {
 			try {
 			switch(choice) {
 			case "1":
-				createJeep();
+				createPlayer();
 				break;
 				
 			case "2":
@@ -61,6 +61,7 @@ public class VideoGameApplication {
 		int id = Integer.parseInt(scanner.nextLine());
 		
 		playerDao.deletePlayer(id);
+		listPlayers();
 	}
 
 	private void modifyPlayer() throws SQLException {
@@ -80,7 +81,7 @@ public class VideoGameApplication {
 		players.stream().forEach(player -> System.out.println(player));
 	}
 
-	private void createJeep() throws SQLException {
+	private void createPlayer() throws SQLException {
 		System.out.print("Enter a Player name: ");
 		String playerName = scanner.nextLine();
 		playerDao.createPlayer(playerName);
